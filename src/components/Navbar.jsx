@@ -2,27 +2,21 @@ import { BsCart3, BsMoonFill, BsSunFill } from "react-icons/bs";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 import NavLinks from "./NavLinks";
-import { useEffect, useState } from "react";
-
-const themes = {
-  winter: "winter",
-  dracula: "dracula",
-};
-const getLocastorageTheme = () => {
-  localStorage.getItem("theme") || themes.winter;
-};
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "../features/user/userSlice";
 
 const Navbar = () => {
-  const [theme, setTheme] = useState(getLocastorageTheme);
+  const theme = useSelector((state) => state.userState.theme);
+  const numItemsInCart = useSelector((state) => state.cartState.numItemsIncart);
+  // console.log(numItemsInCart);
+
+  const dispatch = useDispatch();
+  const isDarkTheme = theme === "dracula";
+
   const handleTheme = () => {
-    const { winter, dracula } = themes;
-    const newTheme = theme === winter ? dracula : winter;
-    setTheme(newTheme);
+    dispatch(toggleTheme());
   };
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+
   return (
     <nav className="bg-base-200">
       <div className="navbar mx-auto max-w-6xl px-8">
@@ -54,7 +48,11 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           <label className="swap swap-rotate">
-            <input type="checkbox" onChange={handleTheme} />
+            <input
+              type="checkbox"
+              onChange={handleTheme}
+              defaultChecked={isDarkTheme}
+            />
             <BsSunFill className="swap-on h-4 w-4" />
             <BsMoonFill className="swap-off h-4 w-4" />
           </label>
@@ -62,7 +60,7 @@ const Navbar = () => {
             <div className="indicator">
               <BsCart3 className="h-6 w-6" />
               <span className="badge badge-xs badge-primary indicator-item">
-                3
+                {numItemsInCart}
               </span>
             </div>
           </NavLink>

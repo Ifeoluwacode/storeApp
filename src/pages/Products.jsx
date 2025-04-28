@@ -1,0 +1,28 @@
+import { Filters, Paginationcontainer, ProductContainer } from "../components";
+import { customFetch } from "../utils";
+
+export const loader = async ({ request }) => {
+  const url = "/products";
+  const params = Object.fromEntries([
+    ...new URL(request.url).searchParams.entries(),
+  ]);
+  // console.log(params);
+
+  const response = await customFetch(url, { params });
+  // console.log(response.data);
+
+  const products = response.data.data;
+  const meta = response.data.meta;
+  return { products, meta, params };
+};
+const Products = () => {
+  return (
+    <>
+      <Filters />
+      <ProductContainer />
+      <Paginationcontainer />
+    </>
+  );
+};
+
+export default Products;
