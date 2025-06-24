@@ -13,7 +13,6 @@ export const loader = async ({ params }) => {
 const SingleProduct = () => {
   const { product } = useLoaderData();
   const dispatch = useDispatch();
-  // console.log(product);
 
   const { image, title, price, description, colors, company } =
     product.attributes;

@@ -39,6 +39,7 @@ const router = createBrowserRouter([
       {
         path: "products",
         element: <Products />,
+        errorElement: <ErrorElement />,
         loader: ProductsLoader,
       },
       {
@@ -50,22 +51,28 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <Cart />,
+        errorElement: <ErrorElement />,
       },
       {
         path: "about",
         element: <About />,
+        errorElement: <ErrorElement />,
       },
       {
         path: "checkout",
         element: <Checkout />,
+        errorElement: <ErrorElement />,
+
         loader: checkoutLoader(store),
-        action: checkoutAction(store)
+        action: checkoutAction(store),
       },
 
       {
         path: "orders",
         element: <Orders />,
-        loader: ordersLoader(store)
+        errorElement: <ErrorElement />,
+
+        loader: ordersLoader(store),
       },
     ],
   },
@@ -79,7 +86,7 @@ const router = createBrowserRouter([
     path: "register",
     element: <Register />,
     errorElement: <Error />,
-    action: registerAction
+    action: registerAction,
   },
 ]);
 

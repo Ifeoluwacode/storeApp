@@ -27,7 +27,6 @@ const cartSlice = createSlice({
         state.cartItems.push(product);
       }
       state.numItemsIncart += product.amount;
-      // console.log(state.numItemsIncart);
 
       state.cartTotal += product.price * product.amount;
       cartSlice.caseReducers.calculateTotals(state);
