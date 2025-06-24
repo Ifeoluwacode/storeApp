@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../features/user/userSlice";
-import Logo from "./Logo";
 
 const Navbar = () => {
   const theme = useSelector((state) => state.userState.theme);
@@ -27,7 +26,7 @@ const Navbar = () => {
             className="hidden lg:flex btn  text-3xl items-center bg-white"
           >
             {/* <Logo /> */}
-            <img src="/src/assets/love-logo.png" className="w-20" alt="" />
+            <img src="/images/love-logo.png" className="w-20" alt="logo" />
           </NavLink>
           {/* Dropdown */}
           <div className="dropdown">

@@ -8,7 +8,7 @@ const features = [
     description:
       "Every great brand begins with a simple idea — ours started with a passion to make everyday shopping better, more personal, and more meaningful. LoveStore was born out of a desire to create a space where quality meets affordability, and where every product tells a story of care, craftsmanship, and connection. What began as a small dream has grown into a trusted destination for customers who value thoughtful selections and genuine service. We’re not just about selling — we’re about building a community of people who appreciate good things, made well. From our humble beginnings to where we are now, your support has been part of our journey every step of the way. Thank you for being part of our story.",
 
-    image: "/src/assets/Cloth.jpg",
+    image: "/images/Cloth.jpg",
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const features = [
     description:
       "Our vision is to redefine the shopping experience by creating a platform where quality, trust, and inspiration come together. We aim to be the go-to destination for those seeking unique, well-crafted products that enrich everyday life. We believe in a future where every purchase supports a story, a maker, and a community.",
 
-    image: "/src/assets/furniture.jpg",
+    image: "/images/furniture.jpg",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const features = [
     description:
       "Our mission is to connect people with products that matter. We carefully curate our selection to ensure every item meets our standards for quality, value, and design. Through exceptional service and a commitment to our customers, we strive to make every interaction meaningful and memorable.",
 
-    image: "/src/assets/kid.jpg",
+    image: "/images/kid.jpg",
   },
   {
     id: 4,
@@ -32,7 +32,7 @@ const features = [
     description:
       "Integrity, creativity, and community are at the heart of everything we do. We value honest relationships with our customers and partners, celebrate innovation, and believe in giving back to the communities we serve. These values guide us as we grow and evolve.",
 
-    image: "/src/assets/kids_shopping.jpg",
+    image: "/images/kids_shopping.jpg",
   },
 ];
 
