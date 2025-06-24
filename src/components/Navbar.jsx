@@ -4,11 +4,11 @@ import { NavLink } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../features/user/userSlice";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const theme = useSelector((state) => state.userState.theme);
   const numItemsInCart = useSelector((state) => state.cartState.numItemsIncart);
-  // console.log(numItemsInCart);
 
   const dispatch = useDispatch();
   const isDarkTheme = theme === "dracula";
@@ -18,15 +18,16 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-base-200">
+    <nav className="bg-base-200 sticky top-0 z-10">
       <div className="navbar mx-auto max-w-6xl px-8">
         <div className="navbar-start">
           {/* title */}
           <NavLink
             to="/"
-            className="hidden lg:flex btn btn-primary text-3xl items-center"
+            className="hidden lg:flex btn  text-3xl items-center bg-white"
           >
-            C
+            {/* <Logo /> */}
+            <img src="/src/assets/love-logo.png" className="w-20" alt="" />
           </NavLink>
           {/* Dropdown */}
           <div className="dropdown">

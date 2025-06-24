@@ -9,7 +9,6 @@ const CustomPagination = () => {
     const searchParams = new URLSearchParams(search);
     searchParams.set("page", pageNumber);
     navigate(`${pathname}?${searchParams.toString()}`);
-    console.log(pageNumber);
   };
   const addPageButton = ({ pageNumber, activeClass }) => {
     return (

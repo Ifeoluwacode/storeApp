@@ -13,10 +13,8 @@ const Hero = () => {
           We are changing the way people shop
         </h1>
         <p className="mt-8 max-w-xl text-lg leading-8">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus,
-          nostrum! Rerum voluptatum libero quod qui vitae numquam aliquam
-          maiores animi ut autem ab molestiae tenetur, iusto eligendi voluptatem
-          reprehenderit itaque.
+          We’re redefining shopping by blending comfort, style, and convenience
+          — all in one place.
         </p>
         <div className="mt-10">
           <Link to="/products" className="btn btn-primary">
