@@ -3,7 +3,7 @@ function OurTeam() {
     {
       name: "Henry Cleff",
       role: "Founder & CEO",
-      imageSrc: "/src/assets/Cleff.jpg",
+      imageSrc: "/images/Cleff.jpg",
       isGrayscale: true,
       socials: {
         instagram: "#",
@@ -13,7 +13,7 @@ function OurTeam() {
     {
       name: "Bodunde Tolulope",
       role: "SM Manager",
-      imageSrc: "/src/assets/Tolu.jpg",
+      imageSrc: "/images/Tolu.jpg",
       isGrayscale: false,
       socials: {
         instagram: "#",
@@ -23,7 +23,7 @@ function OurTeam() {
     {
       name: "Ajao Ifeoluwa",
       role: "Developer",
-      imageSrc: "/src/assets/Ajao.png",
+      imageSrc: "/images/Ajao.png",
       isGrayscale: true,
       socials: {
         instagram: "#",
