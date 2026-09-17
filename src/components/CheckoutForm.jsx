@@ -4,6 +4,7 @@ import SubmitBtn from "./SubmitBtn";
 import { customFetch, formatPrice } from "../utils";
 import { clearCart } from "../features/cart/cartSlice";
 import { toast } from "react-toastify";
+import { motion } from "framer-motion";
 
 export const action = (store) => async ({request}) => {
 const formData = await request.formData()
@@ -41,14 +42,20 @@ try {
 }
 const CheckoutForm = () => {
   return (
-    <Form method='POST' className='flex flex-col gap-y-4'>
-      <h4 className='font-medium text-xl'>Shipping Information</h4>
-      <FormInput label='first name' name='name' type='text' />
-      <FormInput label='address' name='address' type='text' />
-      <div className='mt-4'>
-        <SubmitBtn text='Place Your Order' />
-      </div>
-    </Form>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
+      <Form method='POST' className='flex flex-col gap-y-4 bg-base-100 p-8 rounded-2xl shadow-md border border-base-200'>
+        <h4 className='font-extrabold text-2xl mb-2 text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary pb-1'>Shipping Information</h4>
+        <FormInput label='first name' name='name' type='text' />
+        <FormInput label='address' name='address' type='text' />
+        <div className='mt-6'>
+          <SubmitBtn text='Place Your Order' />
+        </div>
+      </Form>
+    </motion.div>
   );
 }
 

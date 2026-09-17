@@ -1,8 +1,8 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigation } from "react-router-dom";
 import { Header, Loading, Navbar } from "../components";
 
 const HomeLayout = () => {
-  const navigation = useNavigate();
+  const navigation = useNavigation();
   const isPageLoading = navigation.state === "loading";
   return (
     <>

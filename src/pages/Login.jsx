@@ -5,12 +5,19 @@ import { customFetch } from "../utils";
 import { toast } from "react-toastify";
 import { loginUser } from "../features/user/userSlice";
 import { useDispatch } from "react-redux";
+import { motion } from "framer-motion";
 
 export const action =
   (store) =>
   async ({ request }) => {
     const formData = await request.formData();
     const data = Object.fromEntries(formData);
+
+    if (!data.identifier || !data.password) {
+      toast.error("Please provide both email and password");
+      return null;
+    }
+
     try {
       const response = await customFetch.post("/auth/local", data);
 
@@ -44,45 +51,52 @@ const Login = () => {
     }
   };
   return (
-    <section className="h-screen grid place-items-center">
-      <Form
-        method="POST"
-        className="card w-96 p-8 bg-base-100 shadow-lg flex flex-col gap-y-4"
+    <section className="h-screen grid place-items-center bg-base-200/50">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
       >
-        <h4 className="text-center text-3xl font-bold">Login</h4>
-        <FormInput
-          type="email"
-          label="Email"
-          name="identifier"
-          // defaultValue="test@test.com"
-        />
-        <FormInput
-          type="password"
-          label="password"
-          name="password"
-          // defaultValue="secret"
-        />
-        <div className="mt-4">
-          <SubmitBtn text="login" />
-        </div>
-        <button
-          type="button"
-          className="btn btn-secondary btn-block capitalize"
-          onClick={loginAsGuestUser}
+        <Form
+          method="POST"
+          className="card w-96 p-8 bg-base-100 shadow-lg hover:shadow-primary/10 transition-shadow duration-300 border border-base-200 flex flex-col gap-y-4"
         >
-          {" "}
-          guest user
-        </button>
-        <p className="text-center">
-          Not a member yet?{" "}
-          <Link
-            to="/register"
-            className="ml-2 link link-hover link-primary capitalize"
+          <h4 className="text-center text-4xl font-extrabold pb-2 text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+            Login
+          </h4>
+          <FormInput
+            type="email"
+            label="Email"
+            name="identifier"
+            // defaultValue="test@test.com"
+          />
+          <FormInput
+            type="password"
+            label="password"
+            name="password"
+            // defaultValue="secret"
+          />
+          <div className="mt-4">
+            <SubmitBtn text="login" />
+          </div>
+          <button
+            type="button"
+            className="btn btn-secondary btn-outline btn-block capitalize shadow-sm hover:shadow-md transition-all"
+            onClick={loginAsGuestUser}
           >
-            register
-          </Link>{" "}
-        </p>
-      </Form>
+            guest user
+          </button>
+          <p className="text-center mt-2 text-sm text-base-content/80">
+            Not a member yet?{" "}
+            <Link
+              to="/register"
+              className="ml-2 link link-hover link-primary capitalize font-semibold"
+            >
+              register
+            </Link>{" "}
+          </p>
+        </Form>
+      </motion.div>
     </section>
   );
 };
